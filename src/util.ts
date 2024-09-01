@@ -1,4 +1,4 @@
-const ratings = {
+export const ratings = {
     A: 92,
     B: 81,
     C: 69,

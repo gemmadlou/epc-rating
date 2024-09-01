@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { calcuateVerticalPositionInSVG, colors, getRating } from '../util';
+import { computed } from 'vue'
+import { calcuateVerticalPositionInSVG, colors, getRating, ratings } from '../util';
 
 const props = defineProps<{ 
     currentScore: number, 
     potentialScore: number 
 }>()
 
-const currentRating = getRating(props.currentScore)
-const potentialRating = getRating(props.potentialScore)
+const currentRating = computed(() => getRating(props.currentScore)) as unknown as keyof typeof ratings
+const potentialRating = computed(() => getRating(props.potentialScore)) as unknown as keyof typeof ratings
 
-const yCurrentPos = calcuateVerticalPositionInSVG(currentRating)
-const yPotentialPos = calcuateVerticalPositionInSVG(potentialRating)
-
-const currentColor = colors.score[currentRating as keyof typeof colors.score];
-const potentialColor = colors.score[potentialRating as keyof typeof colors.score];
+const yCurrentPos = computed(() => calcuateVerticalPositionInSVG(getRating(props.currentScore)))
+const yPotentialPos = computed(() => calcuateVerticalPositionInSVG(getRating(props.potentialScore)))
 
 </script>
 
@@ -107,12 +104,12 @@ const potentialColor = colors.score[potentialRating as keyof typeof colors.score
             Potential
         </text>
 
-        <svg aria-hidden="true" x="415" :y="yCurrentPos" width="90" height="50" class="rating-current rating-label"  :style="{fill: currentColor}">
+        <svg aria-hidden="true" x="415" :y="yCurrentPos" width="90" height="50" class="rating-current rating-label"  :style="{fill: colors.score[currentRating]}">
             <polygon points="0,25 25,50 100,50 100,0 25,0 0,25"></polygon>
             <text x="35" y="31" fill="black">{{ currentScore }} {{ currentRating }}</text>
         </svg>
 
-        <svg aria-hidden="true" x="515" :y="yPotentialPos" width="90" height="50" class="rating-potential rating-label"   :style="{fill: potentialColor}">
+        <svg aria-hidden="true" x="515" :y="yPotentialPos" width="90" height="50" class="rating-potential rating-label"   :style="{fill: colors.score[potentialRating]}">
             <polygon points="0,25 25,50 100,50 100,0 25,0 0,25"></polygon>
             <text x="35" y="31" fill="black">{{ potentialScore }} {{ potentialRating }}</text>
         </svg>
