@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { calcuateVerticalPositionInSVG, getRating } from '../util';
 
-defineProps<{ 
+const props = defineProps<{ 
     currentScore: number, 
     potentialScore: number 
 }>()
+
+const currentRating = getRating(props.currentScore)
+const potentialRating = getRating(props.potentialScore)
 
 </script>
 
@@ -12,7 +16,7 @@ defineProps<{
     <svg  preserveAspectRatio="xMidYMid meet" width="100%" height="100%" viewBox="0 0 615 377" xmlns="http://www.w3.org/2000/svg"
         aria-labelledby="svg-title svg-desc" role="img" class="epc-energy-rating-graph">
         <title id="svg-title">Energy efficiency chart</title>
-        <desc id="svg-desc">This property's energy rating is C with a score of {{ currentScore }}. It has a potential energy rating of C
+        <desc id="svg-desc">This property's energy rating is {{ currentRating }} with a score of {{ currentScore }}. It has a potential energy rating of C
             with a score of {{ potentialScore }}. Properties get a rating from A to G and a score. Rating C is for a score of 69 to 80.
             The ratings and scores are as follows from best to worst. Rating A is for a score of 92 or more. Rating B is
             for a score of 81 to 91. Rating C is for a score of 69 to 80. Rating D is for a score of 55 to 68. Rating E
@@ -99,12 +103,12 @@ defineProps<{
 
         <svg aria-hidden="true" x="415" y="125" width="90" height="50" class="rating-current rating-label">
             <polygon points="0,25 25,50 100,50 100,0 25,0 0,25" class="band-c"></polygon>
-            <text x="35" y="31" class="govuk-!-font-weight-bold">{{ currentScore }} C</text>
+            <text x="35" y="31" class="govuk-!-font-weight-bold">{{ currentScore }} {{ currentRating }}</text>
         </svg>
 
         <svg aria-hidden="true" x="515" y="125" width="90" height="50" class="rating-potential rating-label">
             <polygon points="0,25 25,50 100,50 100,0 25,0 0,25" class="band-c"></polygon>
-            <text x="35" y="31" class="govuk-!-font-weight-bold">{{ potentialScore }} C</text>
+            <text x="35" y="31" class="govuk-!-font-weight-bold">{{ potentialScore }} {{ potentialRating }}</text>
         </svg>
     </svg>
 </template>
