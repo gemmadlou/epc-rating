@@ -10,6 +10,9 @@ const props = defineProps<{
 const currentRating = getRating(props.currentScore)
 const potentialRating = getRating(props.potentialScore)
 
+const yCurrentPos = calcuateVerticalPositionInSVG(currentRating)
+const yPotentialPos = calcuateVerticalPositionInSVG(potentialRating)
+
 </script>
 
 <template>
@@ -101,12 +104,12 @@ const potentialRating = getRating(props.potentialScore)
             Potential
         </text>
 
-        <svg aria-hidden="true" x="415" y="125" width="90" height="50" class="rating-current rating-label">
+        <svg aria-hidden="true" x="415" :y="yCurrentPos" width="90" height="50" class="rating-current rating-label">
             <polygon points="0,25 25,50 100,50 100,0 25,0 0,25" class="band-c"></polygon>
             <text x="35" y="31" class="govuk-!-font-weight-bold">{{ currentScore }} {{ currentRating }}</text>
         </svg>
 
-        <svg aria-hidden="true" x="515" y="125" width="90" height="50" class="rating-potential rating-label">
+        <svg aria-hidden="true" x="515" :y="yPotentialPos" width="90" height="50" class="rating-potential rating-label">
             <polygon points="0,25 25,50 100,50 100,0 25,0 0,25" class="band-c"></polygon>
             <text x="35" y="31" class="govuk-!-font-weight-bold">{{ potentialScore }} {{ potentialRating }}</text>
         </svg>
