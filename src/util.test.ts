@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getRating } from "./util";
+import { calcuateVerticalPositionInSVG, getRating } from "./util";
 
 describe('Utilities', () => {
     describe('getRating', () => {
@@ -41,5 +41,17 @@ describe('Utilities', () => {
             expect(getRating(20)).toBe('G')
         })
         
+    })
+
+    describe('calcuateVerticalPositionInSVG', () => {
+        it('returns the correct vertical position in the SVG', () => {
+            expect(calcuateVerticalPositionInSVG('A')).toBe(25)
+            expect(calcuateVerticalPositionInSVG('B')).toBe(75)
+            expect(calcuateVerticalPositionInSVG('C')).toBe(125)
+            expect(calcuateVerticalPositionInSVG('D')).toBe(175)
+            expect(calcuateVerticalPositionInSVG('E')).toBe(225)
+            expect(calcuateVerticalPositionInSVG('F')).toBe(275)
+            expect(calcuateVerticalPositionInSVG('G')).toBe(325)
+        })
     })
 })
