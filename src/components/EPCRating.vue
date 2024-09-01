@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { calcuateVerticalPositionInSVG, getRating } from '../util';
+import { calcuateVerticalPositionInSVG, colors, getRating } from '../util';
 
 const props = defineProps<{ 
     currentScore: number, 
@@ -13,10 +13,13 @@ const potentialRating = getRating(props.potentialScore)
 const yCurrentPos = calcuateVerticalPositionInSVG(currentRating)
 const yPotentialPos = calcuateVerticalPositionInSVG(potentialRating)
 
+const currentColor = colors.score[currentRating as keyof typeof colors.score];
+const potentialColor = colors.score[potentialRating as keyof typeof colors.score];
+
 </script>
 
 <template>
-    <svg  preserveAspectRatio="xMidYMid meet" width="100%" height="100%" viewBox="0 0 615 377" xmlns="http://www.w3.org/2000/svg"
+    <svg  preserveAspectRatio="xMidYMid meet" width="100%" height="100%" viewBox="0 0 616 377" xmlns="http://www.w3.org/2000/svg"
         aria-labelledby="svg-title svg-desc" role="img" class="epc-energy-rating-graph">
         <title id="svg-title">Energy efficiency chart</title>
         <desc id="svg-desc">This property's energy rating is {{ currentRating }} with a score of {{ currentScore }}. It has a potential energy rating of C
@@ -36,34 +39,34 @@ const yPotentialPos = calcuateVerticalPositionInSVG(potentialRating)
         <line x1="615" y1="376" x2="615" y2="0" class="inner-border"></line>
         <line x1="615" y1="376" x2="0" y2="376" class="inner-border"></line>
 
-        <rect width="78" height="50" x="72" y="25" class="band-a">
+        <rect width="78" height="50" x="72" y="25" :style="{fill: colors.band.A}">
         </rect>
-        <rect width="118" height="50" x="72" y="75" class="band-b">
+        <rect width="118" height="50" x="72" y="75" :style="{fill: colors.band.B}">
         </rect>
-        <rect width="158" height="50" x="72" y="125" class="band-c">
+        <rect width="158" height="50" x="72" y="125" :style="{fill: colors.band.C}">
         </rect>
-        <rect width="198" height="50" x="72" y="175" class="band-d">
+        <rect width="198" height="50" x="72" y="175" :style="{fill: colors.band.D}">
         </rect>
-        <rect width="238" height="50" x="72" y="225" class="band-e">
+        <rect width="238" height="50" x="72" y="225" :style="{fill: colors.band.E}">
         </rect>
-        <rect width="278" height="50" x="72" y="275" class="band-f">
+        <rect width="278" height="50" x="72" y="275" :style="{fill: colors.band.F}">
         </rect>
-        <rect width="318" height="50" x="72" y="325" class="band-g">
+        <rect width="318" height="50" x="72" y="325" :style="{fill: colors.band.G}">
         </rect>
 
-        <rect width="72" height="50" x="0" y="25" class="band-a-score">
+        <rect width="72" height="50" x="0" y="25" :style="{fill: colors.score.A}">
         </rect>
-        <rect width="72" height="50" x="0" y="75" class="band-b-score">
+        <rect width="72" height="50" x="0" y="75" :style="{fill: colors.score.B}">
         </rect>
-        <rect width="72" height="50" x="0" y="125" class="band-c-score">
+        <rect width="72" height="50" x="0" y="125" :style="{fill: colors.score.C}">
         </rect>
-        <rect width="72" height="50" x="0" y="175" class="band-d-score">
+        <rect width="72" height="50" x="0" y="175" :style="{fill: colors.score.D}">
         </rect>
-        <rect width="72" height="50" x="0" y="225" class="band-e-score">
+        <rect width="72" height="50" x="0" y="225" :style="{fill: colors.score.E}">
         </rect>
-        <rect width="72" height="50" x="0" y="275" class="band-f-score">
+        <rect width="72" height="50" x="0" y="275" :style="{fill: colors.score.F}">
         </rect>
-        <rect width="72" height="50" x="0" y="325" class="band-g-score">
+        <rect width="72" height="50" x="0" y="325" :style="{fill: colors.score.G}">
         </rect>
 
         <text role="presentation" aria-hidden="true" x="0" y="0" class="letter">
@@ -104,14 +107,14 @@ const yPotentialPos = calcuateVerticalPositionInSVG(potentialRating)
             Potential
         </text>
 
-        <svg aria-hidden="true" x="415" :y="yCurrentPos" width="90" height="50" class="rating-current rating-label">
-            <polygon points="0,25 25,50 100,50 100,0 25,0 0,25" class="band-c"></polygon>
-            <text x="35" y="31" class="govuk-!-font-weight-bold">{{ currentScore }} {{ currentRating }}</text>
+        <svg aria-hidden="true" x="415" :y="yCurrentPos" width="90" height="50" class="rating-current rating-label"  :style="{fill: currentColor}">
+            <polygon points="0,25 25,50 100,50 100,0 25,0 0,25"></polygon>
+            <text x="35" y="31" fill="black">{{ currentScore }} {{ currentRating }}</text>
         </svg>
 
-        <svg aria-hidden="true" x="515" :y="yPotentialPos" width="90" height="50" class="rating-potential rating-label">
-            <polygon points="0,25 25,50 100,50 100,0 25,0 0,25" class="band-c"></polygon>
-            <text x="35" y="31" class="govuk-!-font-weight-bold">{{ potentialScore }} {{ potentialRating }}</text>
+        <svg aria-hidden="true" x="515" :y="yPotentialPos" width="90" height="50" class="rating-potential rating-label"   :style="{fill: potentialColor}">
+            <polygon points="0,25 25,50 100,50 100,0 25,0 0,25"></polygon>
+            <text x="35" y="31" fill="black">{{ potentialScore }} {{ potentialRating }}</text>
         </svg>
     </svg>
 </template>
@@ -131,62 +134,6 @@ const yPotentialPos = calcuateVerticalPositionInSVG(potentialRating)
     line-height: 50px;
     margin-top: 100px;
     font-weight: bold;
-}
-
-.band-a {
-    fill: #00C781
-}
-
-.band-b {
-    fill: #19b459
-}
-
-.band-c {
-    fill: #8dce46
-}
-
-.band-d {
-    fill: #ffd500
-}
-
-.band-e {
-    fill: #fcaa65
-}
-
-.band-f {
-    fill: #ef8023
-}
-
-.band-g {
-    fill: #e9153b
-}
-
-.band-a-score {
-    fill: #64C7A4
-}
-
-.band-b-score {
-    fill: #72CA8B
-}
-
-.band-c-score {
-    fill: #b4df86
-}
-
-.band-d-score {
-    fill: #ffe666
-}
-
-.band-e-score {
-    fill: #fdc79b
-}
-
-.band-f-score {
-    fill: #f4ac71
-}
-
-.band-g-score {
-    fill: #f2738a
 }
 
 line.inner-border {
