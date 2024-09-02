@@ -8,17 +8,20 @@ A little Vue.js component library to display the UK EPC Ratings.
 
 ```vue
 <script setup lang="ts">
-import EPCRating from './components/EPCRating.vue';
+import EPCRating from 'epc-rating';
 </script>
 
 <template>
-  <EPCRating :current-score="72" :potential-score="85" />
+  <EPCRating 
+    :current-score="72" 
+    :potential-score="85" 
+   />
 </template>
 ```
 
 ## EPC Ratings
 
-An Energy Performance Certificate (EPC) tells you how energy efficient a property is. Ratings are grated from A-G. The UK Gov website not only states the current energy rating, but the potential rating given recommendations are implemented.
+An Energy Performance Certificate (EPC) shows how energy efficient a property is, with ratings from A to G. The UK Government website provides both the current and potential ratings for a property.
 
 You can find the energy rating for a property here: https://www.gov.uk/find-energy-certificate.
 
@@ -44,6 +47,8 @@ npm test
 
 - Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
 
-## Attributions
+## Attributions & Thanks
 
-- This component [contains public sector information licensed under the Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). The SVG provided is from the UK Gov website within minor alterations to work with Vue.js. Assets for all EPC related media can be found here: https://assets.publishing.service.gov.uk/media/5a748d20ed915d0e8bf19346/1790388.pdf. EPC ratings diagrams can be generated here: https://find-energy-certificate.service.gov.uk. 
+- This component uses public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). The SVG is sourced from the UK Government website, with minor adjustments for Vue.js. All EPC-related media assets can be found [here](https://assets.publishing.service.gov.uk/media/5a748d20ed915d0e8bf19346/1790388.pdf). EPC rating diagrams can be generated [here](https://find-energy-certificate.service.gov.uk).
+- Thanks to [Brian Barrow](https://x.com/the_brianb) for his [guide](https://www.freecodecamp.org/news/how-to-create-and-publish-a-vue-component-library-update/) on creating a Vue 3 component package.
+- Additional thanks to [Matija Novosel](https://www.linkedin.com/in/matijanovosel/) for his [guide](https://www.matijanovosel.com/blog/making-and-publishing-components-with-vue-3-and-vite) on preparing the npm package.
