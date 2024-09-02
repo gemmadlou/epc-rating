@@ -25,16 +25,16 @@ const yPotentialPos = computed(() => calcuateVerticalPositionInSVG(getRating(pro
             for a score of 81 to 91. Rating C is for a score of 69 to 80. Rating D is for a score of 55 to 68. Rating E
             is for a score of 39 to 54. Rating F is for a score of 21 to 38. Rating G is for a score of 1 to 20.</desc>
 
-        <line x1="72" y1="0" x2="72" y2="376" class="inner-border"></line>
-        <line x1="410" y1="0" x2="410" y2="376" class="inner-border"></line>
-        <line x1="510" y1="0" x2="510" y2="376" class="inner-border"></line>
-        <line x1="0" y1="25" x2="615" y2="25" class="inner-border"></line>
-        <line x1="0" y1="0" x2="615" y2="0" class="inner-border"></line>
+        <line x1="72" y1="0" x2="72" y2="376" style="stroke: #b1b4b6; stroke-width: 1;"></line>
+        <line x1="410" y1="0" x2="410" y2="376" style="stroke: #b1b4b6; stroke-width: 1;"></line>
+        <line x1="510" y1="0" x2="510" y2="376" style="stroke: #b1b4b6; stroke-width: 1;"></line>
+        <line x1="0" y1="25" x2="615" y2="25" style="stroke: #b1b4b6; stroke-width: 1;"></line>
+        <line x1="0" y1="0" x2="615" y2="0" style="stroke: #b1b4b6; stroke-width: 1;"></line>
 
-        <line x1="0" y1="0" x2="615" y2="0" class="inner-border"></line>
-        <line x1="0" y1="0" x2="0" y2="376" class="inner-border"></line>
-        <line x1="615" y1="376" x2="615" y2="0" class="inner-border"></line>
-        <line x1="615" y1="376" x2="0" y2="376" class="inner-border"></line>
+        <line x1="0" y1="0" x2="615" y2="0" style="stroke: #b1b4b6; stroke-width: 1;"></line>
+        <line x1="0" y1="0" x2="0" y2="376" style="stroke: #b1b4b6; stroke-width: 1;"></line>
+        <line x1="615" y1="376" x2="615" y2="0" style="stroke: #b1b4b6; stroke-width: 1;"></line>
+        <line x1="615" y1="376" x2="0" y2="376" style="stroke: #b1b4b6; stroke-width: 1;"></line>
 
         <rect width="78" height="50" x="72" y="25" :style="{fill: colors.band.A}">
         </rect>
@@ -66,7 +66,7 @@ const yPotentialPos = computed(() => calcuateVerticalPositionInSVG(getRating(pro
         <rect width="72" height="50" x="0" y="325" :style="{fill: colors.score.G}">
         </rect>
 
-        <text role="presentation" aria-hidden="true" x="0" y="0" class="letter">
+        <text role="presentation" aria-hidden="true" x="0" y="0" style="font-size: 40px; font-family: sans-serif; fill: #0b0c0c; font-weight: bold;">
             <tspan x="107" y="64">A</tspan>
             <tspan x="147" y="114">B</tspan>
             <tspan x="187" y="164">C</tspan>
@@ -76,7 +76,7 @@ const yPotentialPos = computed(() => calcuateVerticalPositionInSVG(getRating(pro
             <tspan x="347" y="364">G</tspan>
         </text>
 
-        <text role="presentation" aria-hidden="true" x="0" y="0" class="small">
+        <text role="presentation" aria-hidden="true" x="0" y="0" style="font-size: 20px; font-family: sans-serif; fill: #0b0c0c; line-height: 50px; margin-top: 100px; font-weight: bold;">
             <tspan x="8" y="55">92+</tspan>
             <tspan x="8" y="105">81-91</tspan>
             <tspan x="8" y="155">69-80</tspan>
@@ -86,20 +86,20 @@ const yPotentialPos = computed(() => calcuateVerticalPositionInSVG(getRating(pro
             <tspan x="8" y="355">1-20</tspan>
         </text>
 
-        <text role="presentation" aria-hidden="true" x="8" y="15" class="small" dominant-baseline="middle">
+        <text role="presentation" aria-hidden="true" x="8" y="15" style="font-size: 20px; font-family: sans-serif; fill: #0b0c0c; line-height: 50px; margin-top: 100px; font-weight: bold;" dominant-baseline="middle">
             Score
         </text>
 
-        <text role="presentation" aria-hidden="true" x="85" y="15" class="small" dominant-baseline="middle">
+        <text role="presentation" aria-hidden="true" x="85" y="15" style="font-size: 20px; font-family: sans-serif; fill: #0b0c0c; line-height: 50px; margin-top: 100px; font-weight: bold;" dominant-baseline="middle">
             Energy rating
         </text>
 
-        <text role="presentation" aria-hidden="true" x="460" y="15" class="small" text-anchor="middle"
+        <text role="presentation" aria-hidden="true" x="460" y="15" style="font-size: 20px; font-family: sans-serif; fill: #0b0c0c; line-height: 50px; margin-top: 100px; font-weight: bold;" text-anchor="middle"
             dominant-baseline="middle">
             Current
         </text>
 
-        <text role="presentation" aria-hidden="true" x="565" y="15" class="small" text-anchor="middle"
+        <text role="presentation" aria-hidden="true" x="565" y="15" style="font-size: 20px; font-family: sans-serif; fill: #0b0c0c; line-height: 50px; margin-top: 100px; font-weight: bold;" text-anchor="middle"
             dominant-baseline="middle">
             Potential
         </text>
@@ -115,31 +115,3 @@ const yPotentialPos = computed(() => calcuateVerticalPositionInSVG(getRating(pro
         </svg>
     </svg>
 </template>
-
-<style scoped>
-.letter {
-    font-size: 40px;
-    font-family: sans-serif;
-    fill: #0b0c0c;
-    font-weight: bold;
-}
-
-.small {
-    font-size: 20px;
-    font-family: sans-serif;
-    fill: #0b0c0c;
-    line-height: 50px;
-    margin-top: 100px;
-    font-weight: bold;
-}
-
-line.inner-border {
-    stroke: #b1b4b6;
-    stroke-width: 1;
-}
-
-line.score-threshold {
-    stroke: #000;
-    stroke-width: 2;
-}
-</style>
