@@ -2,7 +2,7 @@
 
 A little Vue 3 component library to display the UK EPC Ratings.
 
-[![Tests](https://github.com/gemmadlou/vue-epc-component/actions/workflows/test.yml/badge.svg)](https://github.com/gemmadlou/vue-epc-component/actions/workflows/test.yml)
+[![Test, Build and Publish](https://github.com/gemmadlou/epc-rating/actions/workflows/build.yml/badge.svg)](https://github.com/gemmadlou/epc-rating/actions/workflows/build.yml)
 
 ## Install
 
