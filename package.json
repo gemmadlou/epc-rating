@@ -1,6 +1,19 @@
 {
   "name": "epc-rating",
-  "private": true,
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gemmadlou/epc-rating.git"
+  },
+  "keywords": [
+    "epc",
+    "rating",
+    "epc-rating",
+    "vue",
+    "vue-component",
+    "vue3",
+    "vuejs"
+  ],
   "version": "0.0.0",
   "type": "module",
   "files": [
@@ -24,6 +37,9 @@
   },
   "dependencies": {
     "vue": "^3.4.37"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.5.2",
