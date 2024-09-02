@@ -4,6 +4,12 @@
 
 A little Vue.js component library to display the UK EPC Ratings.
 
+## Install
+
+```bash
+npm i epc-rating
+```
+
 ## Usage
 
 ```vue
@@ -19,7 +25,7 @@ import EPCRating from 'epc-rating';
 </template>
 ```
 
-## EPC Ratings
+## EPC Ratings
 
 An Energy Performance Certificate (EPC) shows how energy efficient a property is, with ratings from A to G. The UK Government website provides both the current and potential ratings for a property.
 
