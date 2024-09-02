@@ -16,10 +16,35 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          
       - name: Install npm dependencies
         run: npm ci
       - name: Run Vitest tests
         run: npm run test
         env:
           CI: true
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Set Git author identity
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+      - name: Bump package version
+        run: |
+          npm version minor
+      - name: Publish to npm
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: |
+          npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm publish
+          git add .
+          git push origin --tags
