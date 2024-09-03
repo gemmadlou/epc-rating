@@ -1,36 +1,44 @@
 export const ratings = {
-    A: 92,
-    B: 81,
-    C: 69,
-    D: 55,
-    E: 39,
-    F: 21
-}
-
-export const colors = {
-    band: {
-        A: '#00C781',
-        B: '#19b459',
-        C: '#8dce46',
-        D: '#ffd500',
-        E: '#fcaa65',
-        F: '#ef8023',
-        G: '#e9153b'
+    A: {
+        min: 92,
+        bandColor: '#00C781',
+        scoreColor: '#64C7A4'
     },
-    score: {
-        A: '#64C7A4',
-        B: '#72CA8B',
-        C: '#b4df86',
-        D: '#ffe666',
-        E: '#fdc79b',
-        F: '#f4ac71',
-        G: '#f2738a'
+    B: {
+        min: 81,
+        bandColor: '#19b459',
+        scoreColor: '#72CA8B'
+    },
+    C: {
+        min: 69,
+        bandColor: '#8dce46',
+        scoreColor: '#b4df86'
+    },
+    D: {
+        min: 55,
+        bandColor: '#ffd500',
+        scoreColor: '#ffe666'
+    },
+    E: {
+        min: 39,
+        bandColor: '#fcaa65',
+        scoreColor: '#fdc79b'
+    },
+    F: {
+        min: 21,
+        bandColor: '#ef8023',
+        scoreColor: '#f4ac71'
+    },
+    G: {
+        min: 0,
+        bandColor: '#e9153b',
+        scoreColor: '#f2738a'
     }
 }
 
 export const getRating = (score: number): string => {
     for (let key in ratings) {
-        if (score >= ratings[key as keyof typeof ratings]) {
+        if (score >= ratings[key as keyof typeof ratings].min) {
             return key
         }
     }

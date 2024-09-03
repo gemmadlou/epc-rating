@@ -36,34 +36,34 @@ const yPotentialPos = computed(() => calcuateVerticalPositionInSVG(getRating(pro
         <line x1="615" y1="376" x2="615" y2="0" style="stroke: #b1b4b6; stroke-width: 1;"></line>
         <line x1="615" y1="376" x2="0" y2="376" style="stroke: #b1b4b6; stroke-width: 1;"></line>
 
-        <rect width="78" height="50" x="72" y="25" :style="{fill: colors.band.A}">
+        <rect width="78" height="50" x="72" y="25" :style="{fill: ratings['A'].bandColor}">
         </rect>
-        <rect width="118" height="50" x="72" y="75" :style="{fill: colors.band.B}">
+        <rect width="118" height="50" x="72" y="75" :style="{fill: ratings['B'].bandColor}">
         </rect>
-        <rect width="158" height="50" x="72" y="125" :style="{fill: colors.band.C}">
+        <rect width="158" height="50" x="72" y="125" :style="{fill: ratings['C'].bandColor}">
         </rect>
-        <rect width="198" height="50" x="72" y="175" :style="{fill: colors.band.D}">
+        <rect width="198" height="50" x="72" y="175" :style="{fill: ratings['D'].bandColor}">
         </rect>
-        <rect width="238" height="50" x="72" y="225" :style="{fill: colors.band.E}">
+        <rect width="238" height="50" x="72" y="225" :style="{fill: ratings['E'].bandColor}">
         </rect>
-        <rect width="278" height="50" x="72" y="275" :style="{fill: colors.band.F}">
+        <rect width="278" height="50" x="72" y="275" :style="{fill: ratings['F'].bandColor}">
         </rect>
-        <rect width="318" height="50" x="72" y="325" :style="{fill: colors.band.G}">
+        <rect width="318" height="50" x="72" y="325" :style="{fill: ratings['G'].bandColor}">
         </rect>
 
-        <rect width="72" height="50" x="0" y="25" :style="{fill: colors.score.A}">
+        <rect width="72" height="50" x="0" y="25" :style="{fill: ratings['A'].scoreColor}">
         </rect>
-        <rect width="72" height="50" x="0" y="75" :style="{fill: colors.score.B}">
+        <rect width="72" height="50" x="0" y="75" :style="{fill: ratings['B'].scoreColor}">
         </rect>
-        <rect width="72" height="50" x="0" y="125" :style="{fill: colors.score.C}">
+        <rect width="72" height="50" x="0" y="125" :style="{fill: ratings['C'].scoreColor}">
         </rect>
-        <rect width="72" height="50" x="0" y="175" :style="{fill: colors.score.D}">
+        <rect width="72" height="50" x="0" y="175" :style="{fill: ratings['D'].scoreColor}">
         </rect>
-        <rect width="72" height="50" x="0" y="225" :style="{fill: colors.score.E}">
+        <rect width="72" height="50" x="0" y="225" :style="{fill: ratings['E'].scoreColor}">
         </rect>
-        <rect width="72" height="50" x="0" y="275" :style="{fill: colors.score.F}">
+        <rect width="72" height="50" x="0" y="275" :style="{fill: ratings['F'].scoreColor}">
         </rect>
-        <rect width="72" height="50" x="0" y="325" :style="{fill: colors.score.G}">
+        <rect width="72" height="50" x="0" y="325" :style="{fill: ratings['G'].scoreColor}">
         </rect>
 
         <text role="presentation" aria-hidden="true" x="0" y="0" style="font-size: 40px; font-family: sans-serif; fill: #0b0c0c; font-weight: bold;">
@@ -104,12 +104,12 @@ const yPotentialPos = computed(() => calcuateVerticalPositionInSVG(getRating(pro
             Potential
         </text>
 
-        <svg aria-hidden="true" x="415" :y="yCurrentPos" width="90" height="50" class="rating-current rating-label"  :style="{fill: colors.score[currentRating]}">
+        <svg aria-hidden="true" x="415" :y="yCurrentPos" width="90" height="50" class="rating-current rating-label"  :style="{fill: ratings[currentRating].scoreColor}">
             <polygon points="0,25 25,50 100,50 100,0 25,0 0,25"></polygon>
             <text x="35" y="31" fill="black">{{ currentScore }} {{ currentRating }}</text>
         </svg>
 
-        <svg aria-hidden="true" x="515" :y="yPotentialPos" width="90" height="50" class="rating-potential rating-label"   :style="{fill: colors.score[potentialRating]}">
+        <svg aria-hidden="true" x="515" :y="yPotentialPos" width="90" height="50" class="rating-potential rating-label"   :style="{fill: ratings[potentialRating].scoreColor}">
             <polygon points="0,25 25,50 100,50 100,0 25,0 0,25"></polygon>
             <text x="35" y="31" fill="black">{{ potentialScore }} {{ potentialRating }}</text>
         </svg>
